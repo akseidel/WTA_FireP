@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application WTA_FireP</Name>
+    <Description>Some description for WTA_FireP</Description>
+    <Assembly>WTA_FireP.dll</Assembly>
+    <FullClassName>WTA_FireP.AppFPRibbon</FullClassName>
+    <ClientId>ACE814A7-BD31-4413-A4C6-5C0CE4CB8A60</ClientId>
+    <VendorId>AKS_</VendorId>
+    <VendorDescription>AKS, http://wmtao.com</VendorDescription>
+  </AddIn>
+  
+</RevitAddIns>

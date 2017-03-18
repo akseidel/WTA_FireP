@@ -1,0 +1,327 @@
+﻿<Window x:Class="WTA_FireP.SprnkOpSettingWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+        
+             Title="Sprinkler Op Setting" 
+             Topmost="True" 
+             BorderThickness="0" 
+             WindowStyle="None"
+             Background="Transparent"
+             AllowsTransparency="True"
+             BorderBrush="DarkGray"
+             SizeToContent="WidthAndHeight"
+             Loaded="Window_Loaded"
+             Closing="Window_Closing"
+             LocationChanged="Window_LocationChanged"
+             MouseDown="DragWindow" MouseLeave="Window_MouseLeave"
+             >
+
+    <Window.Resources>
+        <Style x:Key="{x:Type ToolTip}"
+             TargetType="{x:Type ToolTip}">
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+            <Setter Property="FontSize"
+                    Value="14"/>
+            <Setter Property="TextBlock.TextAlignment"
+                    Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Border Name ="Body" 
+            Background="AliceBlue"
+            CornerRadius="24"
+            BorderThickness="3"
+            BorderBrush="DarkGray"
+            >
+
+        <StackPanel x:Name="main" Orientation="Vertical" Margin="6" >
+               <TextBlock
+               x:Name="MsgTextBlockMainMsg"   
+               TextWrapping="Wrap"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Center"
+               TextAlignment="Center"
+               Text="Set the Sprinkler Operation Area"  
+               FontSize="14"
+               FontWeight="Bold"
+               MouseEnter="TextBlock_MouseEnter" Margin="0,0,0,4" 
+               />
+
+            <StackPanel x:Name="XOpD" Orientation="Horizontal" Margin="4,4,4,1">
+                <TextBlock
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="X Operation Spacing"  
+                       FontSize="14"
+                       MouseEnter="TextBlock_MouseEnter"  />
+                      
+                <TextBox x:Name="pfXdistance"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="100" 
+                         TextAlignment="Center" 
+                         FontSize="14" 
+                         Text="15"
+                         KeyUp="pfDistance_KeyUp" LostFocus="pfDistance_LostFocus" Margin="4,0,0,0" />
+               
+                <TextBlock
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="feet"  
+                       FontSize="14"
+                       Margin="6,2,4,0" />
+
+                <TextBox x:Name="pfXOpArea"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="80" 
+                         TextAlignment="Center" 
+                         FontSize="14" ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="1000"
+                         Text="0 SF" 
+                         Margin="4,0,0,0" KeyUp="pfXOpArea_KeyUp"  >
+                    <TextBox.ToolTip>
+                        <Border CornerRadius="10" Background="AliceBlue"  BorderThickness="3" BorderBrush="DarkGray" >
+                            <TextBlock Margin="6">
+                        Sets the sprinkler operation area. This drives
+                        <LineBreak />
+                        the Y spacing to achieve that operation area.
+                        <LineBreak />
+                        <LineBreak />  
+                        The resulting Y spacing could be larger than permitted.
+                            </TextBlock>
+                        </Border>
+                    </TextBox.ToolTip>
+                </TextBox>
+
+                <ComboBox x:Name="XOpMaxA" Width="60" Margin="6,0,0,0" 
+                          SelectedIndex="0"
+                          FontSize="14" ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="1000"
+                          Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}"
+                          HorizontalContentAlignment="Center"  DropDownClosed="XOpMaxA_DropDownClosed" KeyUp="XOpMaxA_KeyUp">
+                    <ListBoxItem Content="130 SF" />
+                    <ListBoxItem Content="225 SF" />
+                    <ListBoxItem Content="100 SF" />
+                    <ListBoxItem Content="256 SF" />
+                    <ListBoxItem Content="324 SF" />
+                    <ListBoxItem Content="400 SF" />
+                    <ComboBox.ToolTip >
+                        <Border CornerRadius="10" Background="AliceBlue"  BorderThickness="3" BorderBrush="DarkGray" >
+                            <TextBlock  Margin="6">
+                        Sets the maximum operation area and the actual
+                        <LineBreak />
+                        operation area, which in turn drives the Y spacing
+                        <LineBreak />
+                        to achieve that maximum operation area.
+                        <LineBreak />
+                        <LineBreak />  
+                        The resulting Y spacing could be larger than permitted.
+                            </TextBlock>
+                        </Border>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+
+            </StackPanel>
+            
+            <StackPanel x:Name="YOpD" Orientation="Horizontal" Margin="4,1">
+                <TextBlock
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="Y Operation Spacing"  
+                       FontSize="14"
+                       MouseEnter="TextBlock_MouseEnter"  />
+
+                <TextBox x:Name="pfYdistance"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="100" 
+                         TextAlignment="Center" 
+                         FontSize="14" 
+                         Text="15"
+                         KeyUp="pfDistance_KeyUp" LostFocus="pfDistance_LostFocus" 
+                         Margin="4,0,0,0" />
+
+                <TextBlock
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="feet"  
+                       FontSize="14"
+                       Margin="6,1,4,1" />
+
+                <TextBox x:Name="pfYOpArea"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="80" 
+                         TextAlignment="Center" 
+                         FontSize="14" ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="1000"
+                         Text="0 SF"
+                         Margin="4,0,0,0" KeyUp="pfYOpArea_KeyUp" >
+                    <TextBox.ToolTip>
+                        <Border CornerRadius="10" Background="AliceBlue"  BorderThickness="3" BorderBrush="DarkGray" >
+                            <TextBlock Margin="6">
+                        Sets the sprinkler operation area. This drives
+                        <LineBreak />
+                        the X spacing to achieve that operation area.
+                        <LineBreak />
+                        <LineBreak />  
+                        The resulting X spacing could be larger than permitted.
+                            </TextBlock>
+                        </Border>
+                    </TextBox.ToolTip>
+                </TextBox>
+
+                <ComboBox x:Name="YOpMaxA" Width="60" Margin="6,0,0,0" 
+                          SelectedIndex="0"
+                          FontSize="14" ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="1000"
+                          Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}"
+                          HorizontalContentAlignment="Center" DropDownClosed="MaxSpace_DropDownClosed" KeyUp="YOpMaxA_KeyUp">
+                    <ListBoxItem Content="130 SF" />
+                    <ListBoxItem Content="225 SF" />
+                    <ListBoxItem Content="100 SF" />
+                    <ListBoxItem Content="256 SF" />
+                    <ListBoxItem Content="324 SF" />
+                    <ListBoxItem Content="400 SF" />
+                    <ComboBox.ToolTip>
+                        <Border CornerRadius="10" Background="AliceBlue"  BorderThickness="3" BorderBrush="DarkGray" >
+                            <TextBlock  Margin="6">
+                        Sets the maximum operation area and the actual
+                        <LineBreak />
+                        operation area, which in turn drives the X spacing
+                        <LineBreak />
+                        to achieve that maximum operation area.
+                        <LineBreak />
+                        <LineBreak />  
+                        The resulting X spacing could be larger than permitted.
+                            </TextBlock>
+                        </Border>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+
+            </StackPanel>
+            
+            <StackPanel x:Name="XArry" Orientation="Horizontal" Margin="4,1">
+                <TextBlock
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="X Arry Qty"  
+                       FontSize="14"
+                       MouseEnter="TextBlock_MouseEnter"  />
+
+                <TextBox x:Name="pfXArry"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="100" 
+                         TextAlignment="Center" 
+                         FontSize="14" 
+                         Text="2" Margin="66,0,0,0" LostFocus="pfArry_LostFocus" />
+
+                <TextBlock
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="int"  
+                       FontSize="14"
+                       Margin="6,1,4,1" />
+
+                <ComboBox x:Name="MaxSpace" Width="60" Margin="100,0,0,0" 
+                          SelectedIndex="2"
+                          FontSize="14" ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="1000"
+                          Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}"
+                          HorizontalContentAlignment="Center" KeyUp="MaxSpace_KeyUp" DropDownClosed="MaxSpace_DropDownClosed" >
+                    <ListBoxItem Content="10" />
+                    <ListBoxItem Content="14" />
+                    <ListBoxItem Content="15" />
+                    <ListBoxItem Content="16" />
+                    <ListBoxItem Content="18" />
+                    <ListBoxItem Content="20" />
+                    <ComboBox.ToolTip>
+                        <Border CornerRadius="10" Background="AliceBlue"  BorderThickness="3" BorderBrush="DarkGray" >
+                            <TextBlock Margin="6">
+                        Sets the maximum allowed sprinkler spacing.
+                            </TextBlock>
+                        </Border>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+
+            </StackPanel>
+
+            <StackPanel x:Name="YArry" Orientation="Horizontal" Margin="4,1,4,4">
+                <TextBlock
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="Y Arry Qty"  
+                       FontSize="14"
+                       MouseEnter="TextBlock_MouseEnter"  />
+
+                <TextBox x:Name="pfYArry"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Width="100" 
+                         TextAlignment="Center" 
+                         FontSize="14" 
+                         Text="2" LostFocus="pfArry_LostFocus" Margin="66,0,0,0" />
+
+                <TextBlock
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       TextAlignment="Left"
+                       Text="int"  
+                       FontSize="14"
+                       Margin="6,2,4,2" />
+                <TextBlock x:Name="msg"
+                       VerticalAlignment="Center"
+                       TextAlignment="Justify"
+                       Text="Tastes like chicken."  
+                       FontSize="14"
+                       Margin="10,2,4,2" Width="Auto" />
+
+            </StackPanel>
+
+            <StackPanel x:Name="BotWithChecks"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="4">
+                <Button x:Name="btn_Close" 
+                       Content="Down, Set, Hike" HorizontalAlignment="Stretch"
+                       Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                       Background="Transparent"
+                       BorderThickness="0"
+                       BorderBrush="DarkGray"
+                        Margin="20,0"
+                       Click="btn_Close_Click"/>
+                <CheckBox x:Name="SeeSmallRoom"
+                          Content="See Small Room"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          Margin="20,0,0,0"
+                          >
+                </CheckBox>
+                <CheckBox x:Name="SeeMinDist"
+                          Content="See Min Dist"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          Margin="20,0,0,0"
+                          >
+                </CheckBox>
+
+            </StackPanel>
+            
+            
+            
+        </StackPanel>
+      
+    </Border>
+</Window>

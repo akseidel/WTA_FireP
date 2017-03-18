@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WTA_FireP", "WTA_FireP\WTA_FireP.csproj", "{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug2014|Any CPU = Debug2014|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release2014|Any CPU = Release2014|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Debug2014|Any CPU.ActiveCfg = Debug2014|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Debug2014|Any CPU.Build.0 = Debug2014|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Release2014|Any CPU.ActiveCfg = Release2014|Any CPU
+		{DDD9BA20-8A2D-4DE1-9387-B0B2F6398EC5}.Release2014|Any CPU.Build.0 = Release2014|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
