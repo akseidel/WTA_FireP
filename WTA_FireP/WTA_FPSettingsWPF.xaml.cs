@@ -20,7 +20,9 @@ using Autodesk.Revit.UI;
 using Autodesk.Windows;
 using System.ComponentModel;
 
-
+/// <summary>
+/// Settings mechanism was started but never progressed beyond nothing.
+/// </summary>
 namespace WTA_FireP {
     /// <summary>
     /// Interaction logic for WPF_WTATabControler.xaml

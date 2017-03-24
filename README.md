@@ -1,4 +1,6 @@
 # WTA_FireP
+![RibbonTab](/FPRibbonTab.PNG)
+
 Revit Add-in in c# : Creates a custom ribbon Tab with discipline related tools. The tools at this writing are for placing specific Revit family|types with some families requiring parameter settings made on the fly.
 
 Included is the 3dAimer example that "aims" a special Revit family to a target. The enclosed Revit project is for demonstrating the 3dAimer.
@@ -26,4 +28,4 @@ What goes on in this add-in is much of the typical tasks required for providing 
   - Handling correct view type context
 * Changing family parameter values
 
-Much of the code is by others. Its mangling and ignorant misuse is my ongoing doing. Much thanks to the professionals like Jeremy Tammik who provided the means directly or by mention one way or another for probably all the code needed.  
+Much of the code is by others. Its mangling and ignorant misuse is my ongoing doing. Much thanks to the professionals like Jeremy Tammik who provided the means directly or by mention one way or another for probably all the code needed.

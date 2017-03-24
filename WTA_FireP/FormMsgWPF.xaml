@@ -67,7 +67,6 @@
                     <CheckBox x:Name="ChkTagOption" 
                               FontSize="11"
                               Content="Also Tag Other View"
-                              Visibility="Collapsed"
                               VerticalAlignment="Center" MouseLeave="ChkTagOption_MouseLeave" Margin="0,6,10,6">
                         <CheckBox.ToolTip>
                             <Border CornerRadius="10" Background="AliceBlue" 
